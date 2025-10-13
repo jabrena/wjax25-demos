@@ -27,7 +27,7 @@
 
         <!-- Testing dependencies -->
         <junit-jupiter.version>6.0.0</junit-jupiter.version>
-        <assertj-core.version>3.26.3</assertj-core.version>
+        <assertj-core.version>3.27.6</assertj-core.version>
 
         <!-- Maven plugin versions -->
         <maven-plugin-compiler.version>3.13.0</maven-plugin-compiler.version>
