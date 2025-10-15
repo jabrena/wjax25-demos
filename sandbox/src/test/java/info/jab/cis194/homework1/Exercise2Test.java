@@ -18,7 +18,7 @@ public class Exercise2Test {
         
         // Test edge cases
         assertEquals(Arrays.asList(), exercise2.doubleEveryOther(Arrays.asList()));
-        assertEquals(Arrays.asList(2), exercise2.doubleEveryOther(Arrays.asList(1)));
+        assertEquals(Arrays.asList(1), exercise2.doubleEveryOther(Arrays.asList(1)));
         assertEquals(Arrays.asList(2, 2), exercise2.doubleEveryOther(Arrays.asList(1, 2)));
         assertEquals(Arrays.asList(1, 4, 3), exercise2.doubleEveryOther(Arrays.asList(1, 2, 3)));
         
