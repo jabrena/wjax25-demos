@@ -71,4 +71,25 @@ public final class Exercice1 {
         }
         return total;
     }
+
+    public static boolean validate(long number) {
+        if (number <= 0) {
+            return false;
+        }
+        // Build digits from the long value
+        if (number > Integer.MAX_VALUE) {
+            // handle via string to be safe with very long numbers
+            String s = Long.toString(number);
+            List<Integer> digits = new ArrayList<>(s.length());
+            for (int i = 0; i < s.length(); i++) {
+                digits.add(s.charAt(i) - '0');
+            }
+            int checksum = sumDigits(doubleEveryOther(digits));
+            return checksum % 10 == 0;
+        } else {
+            List<Integer> digits = toDigits((int) number);
+            int checksum = sumDigits(doubleEveryOther(digits));
+            return checksum % 10 == 0;
+        }
+    }
 }
