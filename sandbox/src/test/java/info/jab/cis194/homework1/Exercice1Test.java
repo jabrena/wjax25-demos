@@ -50,4 +50,21 @@ class Exercice1Test {
         assertThat(Exercice1.validate(4012888888881881L)).isTrue();
         assertThat(Exercice1.validate(4012888888881882L)).isFalse();
     }
+
+    @Test
+    void hanoi_shouldSolveForTwoDisks() {
+        List<Exercice1.Move> moves = Exercice1.hanoi(2, "A", "B", "C");
+        assertThat(moves)
+                .containsExactly(
+                        new Exercice1.Move("A", "C"),
+                        new Exercice1.Move("A", "B"),
+                        new Exercice1.Move("C", "B"));
+    }
+
+    @Test
+    void hanoi_shouldSolveForOneDisk() {
+        List<Exercice1.Move> moves = Exercice1.hanoi(1, "A", "B", "C");
+        assertThat(moves)
+                .containsExactly(new Exercice1.Move("A", "B"));
+    }
 }

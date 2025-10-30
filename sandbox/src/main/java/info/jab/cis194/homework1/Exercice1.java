@@ -6,6 +6,8 @@ import java.util.List;
 
 public final class Exercice1 {
 
+    public record Move(String from, String to) {}
+
     private Exercice1() {}
 
     public static List<Integer> toDigits(int number) {
@@ -72,7 +74,6 @@ public final class Exercice1 {
         if (number <= 0) {
             return false;
         }
-        // Convert to digits (int is fine up to 2.1b; but card numbers exceed; we work per digit)
         String s = Long.toString(number);
         List<Integer> digits = new ArrayList<>(s.length());
         for (int i = 0; i < s.length(); i++) {
@@ -81,5 +82,24 @@ public final class Exercice1 {
         List<Integer> doubled = doubleEveryOther(digits);
         int total = sumDigits(doubled);
         return total % 10 == 0;
+    }
+
+    public static List<Move> hanoi(int n, String from, String to, String aux) {
+        List<Move> moves = new ArrayList<>();
+        hanoiRec(n, from, to, aux, moves);
+        return List.copyOf(moves);
+    }
+
+    private static void hanoiRec(int n, String from, String to, String aux, List<Move> acc) {
+        if (n <= 0) {
+            return;
+        }
+        if (n == 1) {
+            acc.add(new Move(from, to));
+            return;
+        }
+        hanoiRec(n - 1, from, aux, to, acc);
+        acc.add(new Move(from, to));
+        hanoiRec(n - 1, aux, to, from, acc);
     }
 }
