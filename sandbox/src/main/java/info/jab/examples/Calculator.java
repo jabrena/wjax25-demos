@@ -1,4 +1,4 @@
-package info.jab.example;
+package info.jab.examples;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
