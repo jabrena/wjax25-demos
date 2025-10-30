@@ -34,4 +34,25 @@ public final class Exercice1 {
         }
         return digits;
     }
+
+    public static List<Integer> doubleEveryOther(List<Integer> digits) {
+        if (digits.isEmpty()) {
+            return List.of();
+        }
+        List<Integer> reversed = new ArrayList<>(digits);
+        Collections.reverse(reversed);
+
+        List<Integer> processed = new ArrayList<>(reversed.size());
+        for (int i = 0; i < reversed.size(); i++) {
+            int value = reversed.get(i);
+            if ((i % 2) == 1) {
+                processed.add(value * 2);
+            } else {
+                processed.add(value);
+            }
+        }
+
+        Collections.reverse(processed);
+        return processed;
+    }
 }
