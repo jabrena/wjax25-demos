@@ -44,4 +44,10 @@ class Exercice1Test {
         assertThat(Exercice1.sumDigits(List.of(9))).isEqualTo(9);
         assertThat(Exercice1.sumDigits(List.of(10, 99))).isEqualTo(1 + 9 + 9);
     }
+
+    @Test
+    void validate_shouldReturnWhetherNumberPassesLuhnAlgorithm() {
+        assertThat(Exercice1.validate(4012888888881881L)).isTrue();
+        assertThat(Exercice1.validate(4012888888881882L)).isFalse();
+    }
 }

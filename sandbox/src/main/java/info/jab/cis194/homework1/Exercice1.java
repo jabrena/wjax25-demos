@@ -67,4 +67,19 @@ public final class Exercice1 {
         }
         return sum;
     }
+
+    public static boolean validate(long number) {
+        if (number <= 0) {
+            return false;
+        }
+        // Convert to digits (int is fine up to 2.1b; but card numbers exceed; we work per digit)
+        String s = Long.toString(number);
+        List<Integer> digits = new ArrayList<>(s.length());
+        for (int i = 0; i < s.length(); i++) {
+            digits.add(s.charAt(i) - '0');
+        }
+        List<Integer> doubled = doubleEveryOther(digits);
+        int total = sumDigits(doubled);
+        return total % 10 == 0;
+    }
 }
