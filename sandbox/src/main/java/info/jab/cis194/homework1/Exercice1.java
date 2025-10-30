@@ -8,6 +8,8 @@ public final class Exercice1 {
 
     private Exercice1() {}
 
+    public record Move(String from, String to) {}
+
     public static List<Integer> toDigits(int number) {
         if (number <= 0) {
             return List.of();
@@ -91,5 +93,24 @@ public final class Exercice1 {
             int checksum = sumDigits(doubleEveryOther(digits));
             return checksum % 10 == 0;
         }
+    }
+
+    public static List<Move> hanoi(int n, String from, String to, String temp) {
+        List<Move> moves = new ArrayList<>();
+        solveHanoi(n, from, to, temp, moves);
+        return moves;
+    }
+
+    private static void solveHanoi(int n, String from, String to, String temp, List<Move> acc) {
+        if (n <= 0) {
+            return;
+        }
+        if (n == 1) {
+            acc.add(new Move(from, to));
+            return;
+        }
+        solveHanoi(n - 1, from, temp, to, acc);
+        acc.add(new Move(from, to));
+        solveHanoi(n - 1, temp, to, from, acc);
     }
 }
