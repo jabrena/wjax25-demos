@@ -50,4 +50,21 @@ public final class Exercice1 {
         }
         return List.copyOf(result);
     }
+
+    public static int sumDigits(List<Integer> values) {
+        int sum = 0;
+        for (int value : values) {
+            int v = Math.abs(value);
+            if (v < 10) {
+                sum += v;
+            } else {
+                // flatten two-digit (or more) numbers
+                while (v > 0) {
+                    sum += v % 10;
+                    v /= 10;
+                }
+            }
+        }
+        return sum;
+    }
 }

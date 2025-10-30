@@ -36,4 +36,12 @@ class Exercice1Test {
         assertThat(Exercice1.doubleEveryOther(List.of()))
                 .isEmpty();
     }
+
+    @Test
+    void sumDigits_shouldSumAllDigits_flatteningTwoDigitNumbers() {
+        assertThat(Exercice1.sumDigits(List.of(16, 7, 12, 5))).isEqualTo(22);
+        assertThat(Exercice1.sumDigits(List.of())).isEqualTo(0);
+        assertThat(Exercice1.sumDigits(List.of(9))).isEqualTo(9);
+        assertThat(Exercice1.sumDigits(List.of(10, 99))).isEqualTo(1 + 9 + 9);
+    }
 }
