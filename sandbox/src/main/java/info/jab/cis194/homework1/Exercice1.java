@@ -35,4 +35,19 @@ public final class Exercice1 {
         }
         return List.copyOf(digits);
     }
+
+    public static List<Integer> doubleEveryOther(List<Integer> digits) {
+        if (digits.isEmpty()) {
+            return List.of();
+        }
+        int size = digits.size();
+        List<Integer> result = new ArrayList<>(size);
+        // from left, but doubling every second from right means: index parity depends on size
+        for (int i = 0; i < size; i++) {
+            int value = digits.get(i);
+            boolean shouldDouble = ((size - i) % 2 == 0); // positions counted from 1 on the right
+            result.add(shouldDouble ? value * 2 : value);
+        }
+        return List.copyOf(result);
+    }
 }
