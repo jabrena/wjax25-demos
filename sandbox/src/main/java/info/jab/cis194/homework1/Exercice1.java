@@ -55,4 +55,20 @@ public final class Exercice1 {
         Collections.reverse(processed);
         return processed;
     }
+
+    public static int sumDigits(List<Integer> numbers) {
+        int total = 0;
+        for (int number : numbers) {
+            int n = Math.abs(number);
+            if (n < 10) {
+                total += n;
+            } else {
+                while (n > 0) {
+                    total += (n % 10);
+                    n /= 10;
+                }
+            }
+        }
+        return total;
+    }
 }
