@@ -1,4 +1,4 @@
-package info.jab.euler-problems.euler-problem3;
+package info.jab.eulerproblems.eulerproblem3;
 
 /**
  * Euler Problem 3: Largest Prime Factor
