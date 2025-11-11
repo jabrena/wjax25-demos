@@ -1,0 +1,72 @@
+package info.jab.euler_problems.euler_problem3;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * Test suite for Euler Problem 3: Largest Prime Factor
+ * 
+ * The prime factors of 13195 are 5, 7, 13 and 29.
+ * What is the largest prime factor of the number 600851475143?
+ */
+@DisplayName("Euler Problem 3 Tests")
+class EulerProblem3Test {
+
+    private final EulerProblem3 solution = new EulerProblem3();
+
+    @Test
+    @DisplayName("Should find largest prime factor of 13195")
+    void shouldFindLargestPrimeFactorOf13195() {
+        // Given
+        long number = 13195L;
+
+        // When
+        long result = solution.largestPrimeFactor(number);
+
+        // Then
+        assertThat(result).isEqualTo(29L);
+    }
+
+    @Test
+    @DisplayName("Should find largest prime factor of 600851475143")
+    void shouldFindLargestPrimeFactorOf600851475143() {
+        // Given
+        long number = 600851475143L;
+
+        // When
+        long result = solution.largestPrimeFactor(number);
+
+        // Then
+        assertThat(result).isGreaterThan(0L);
+        // The expected result for the actual problem
+        assertThat(result).isEqualTo(6857L);
+    }
+
+    @Test
+    @DisplayName("Should handle prime numbers")
+    void shouldHandlePrimeNumbers() {
+        // Given
+        long prime = 17L;
+
+        // When
+        long result = solution.largestPrimeFactor(prime);
+
+        // Then
+        assertThat(result).isEqualTo(17L);
+    }
+
+    @Test
+    @DisplayName("Should handle small numbers")
+    void shouldHandleSmallNumbers() {
+        // Given
+        long number = 10L;
+
+        // When
+        long result = solution.largestPrimeFactor(number);
+
+        // Then
+        assertThat(result).isEqualTo(5L);
+    }
+}
