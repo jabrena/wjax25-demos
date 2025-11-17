@@ -1,4 +1,4 @@
-package info.jab.euler-problems.euler-problem1;
+package info.jab.eulerproblems.eulerproblem1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

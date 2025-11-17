@@ -1,4 +1,4 @@
-package info.jab.euler-problems.euler-problem1;
+package info.jab.eulerproblems.eulerproblem1;
 
 /**
  * Solution for Euler Problem 1.
